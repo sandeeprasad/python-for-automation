@@ -33,3 +33,34 @@ def execute_tests(tests, browser="Chrome"):
     print("===================================")
 
 execute_tests(browser="firefox", tests=tests)
+
+tests_cases = [
+    "login",
+    "payment",
+    "checkout",
+    "logout"
+]
+
+def run_test(test_name):
+    print(f"Running {test_name} test...")
+    if test_name == "payment":
+        return "FAIL", 3.8
+    else:
+        return "PASS", 2.4
+
+Passed = 0
+Failed = 0
+for test in tests_cases:
+    status, execution_time = run_test(test)
+    print(f"Test status: {status}")
+    print(f"execution time: {execution_time}")
+    if status == "PASS":
+        Passed +=1
+    elif status == "FAIL":
+        Failed +=1
+print(f"Total Passed: {Passed}")
+print(f"Total Failed: {Failed}")    
+
+
+
+    
